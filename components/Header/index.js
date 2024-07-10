@@ -2,9 +2,11 @@ import { Popover } from "@headlessui/react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Button from "../Button";
 // Local Data
 import data from "../../data/portfolio.json";
+import EmailSection from "../Email/EmailSection";
 
 const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
   const router = useRouter();
@@ -19,10 +21,10 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
 
   return (
     <>
-      <Popover className="block tablet:hidden mt-5">
+      <Popover  className="block tablet:hidden mt-5">
         {({ open }) => (
           <>
-            <div className="flex items-center justify-between p-2 laptop:p-0">
+            <div className=" flex items-center justify-between p-2 laptop:p-0">
               <h1
                 onClick={() => router.push("/")}
                 className="font-medium p-2 laptop:p-0 link"
@@ -37,8 +39,16 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                       setTheme(theme === "dark" ? "light" : "dark")
                     }
                   >
+                    <Image
+                      alt="Logo"
+                      className="h-6"
+                      src={`/images/${
+                        theme === "dark" ? "moon.svg" : "sun.svg"
+                      }`}
+                    />
                     <img
                       className="h-6"
+                      alt="chage"
                       src={`/images/${
                         theme === "dark" ? "moon.svg" : "sun.svg"
                       }`}
@@ -77,7 +87,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                   {showResume && (
                     <Button
                       onClick={() =>
-                        window.open("mailto:hello@chetanverma.com")
+                        window.open("mailto:nusratalam975@gmail.com")
                       }
                     >
                       Resume
@@ -85,10 +95,11 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                   )}
 
                   <Button
-                    onClick={() => window.open("mailto:hello@chetanverma.com")}
+                    onClick={() => window.open("mailto:nusratalam975@gmail.com")}
                   >
                     Contact
                   </Button>
+
                 </div>
               ) : (
                 <div className="grid grid-cols-1">
@@ -108,7 +119,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                   )}
 
                   <Button
-                    onClick={() => window.open("mailto:hello@chetanverma.com")}
+                    onClick={() => window.open("mailto:nusratalam975@gmail.com")}
                   >
                     Contact
                   </Button>
@@ -145,7 +156,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
               </Button>
             )}
 
-            <Button onClick={() => window.open("mailto:hello@chetanverma.com")}>
+            <Button onClick={() => window.open("mailto:nusratalam975@gmail.com")}>
               Contact
             </Button>
             {mounted && theme && data.darkMode && (
@@ -182,6 +193,11 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
               <Button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               >
+                <Image
+                  alt="Logo"
+                  className="h-6"
+                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
+                />
                 <img
                   className="h-6"
                   src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}

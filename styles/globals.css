@@ -23,7 +23,7 @@ body {
   filter: blur(40px);
   background: radial-gradient(
     circle,
-    rgba(248, 107, 223, 1) 0%,
+    rgb(196, 79, 175) 0%,
     rgba(107, 107, 248, 0.8) 100%
   );
 }
